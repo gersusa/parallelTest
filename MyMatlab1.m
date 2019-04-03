@@ -14,7 +14,7 @@ function MyMatlab1(InFile1, InFile2, InFile3, InFile4, ...
 [mpc,contingencies] = convert2mpc(InFile3,InFile4,...
                                                    InFile2,InFile1);
 try
-    parpool(32)
+    parpool(22)
 catch M
     switch M.identifier
         case 'parallel:cluster:LocalProfileNumWorkersExceeded'
