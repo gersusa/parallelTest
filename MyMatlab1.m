@@ -18,6 +18,7 @@ try
 catch M
     switch M.identifier
         case 'parallel:cluster:LocalProfileNumWorkersExceeded'
+            disp(feature('numcores'))
             parpool(feature('numcores'))
         case 'parallel:convenience:ConnectionOpen'
             delete(gcp())
