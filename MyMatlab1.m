@@ -15,7 +15,7 @@ function MyMatlab1(InFile1, InFile2, InFile3, InFile4, ...
                                                    InFile2,InFile1);
 disp(feature('numcores'))
 try
-    parpool()
+    parpool(24)
 catch M
     switch M.identifier
         case 'parallel:cluster:LocalProfileNumWorkersExceeded'
