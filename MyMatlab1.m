@@ -13,21 +13,21 @@ function MyMatlab1(InFile1, InFile2, InFile3, InFile4, ...
 
 [mpc,contingencies] = convert2mpc(InFile3,InFile4,...
                                                    InFile2,InFile1);
-disp(feature('numcores'))
-try
-    parpool
-catch M
-    switch M.identifier
-        case 'parallel:cluster:LocalProfileNumWorkersExceeded'
-            disp(feature('numcores'))
-            parpool(feature('numcores'))
-        case 'parallel:convenience:ConnectionOpen'
-            delete(gcp())
-            parpool(feature('numcores'))
-        otherwise
-            rethrow(M)
-    end
-end
+% disp(feature('numcores'))
+% try
+    % parpool
+% catch M
+    % switch M.identifier
+        % case 'parallel:cluster:LocalProfileNumWorkersExceeded'
+            % disp(feature('numcores'))
+            % parpool(feature('numcores'))
+        % case 'parallel:convenience:ConnectionOpen'
+            % delete(gcp())
+            % parpool(feature('numcores'))
+        % otherwise
+            % rethrow(M)
+    % end
+% end
 [mpcOPF, pfs] = solveSCOPF(mpc,contingencies);
 create_solution1(mpcOPF,1)
 create_solution2(pfs,contingencies,1)
